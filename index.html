@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&family=Amiri:wght@400;700&display=swap' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+  <title> Kırık Tespit Sistemi</title>
+</head>
+<body>
+  <canvas id="bgCanvas" class="background-canvas"></canvas>
+  <a href="#" class="nav__logo animated-logo" data-key="systemTitle">El Kırığı Tespit Sistemi</a>
+
+  <section class="home__container bd-container animated-section" id="home">
+    <div class="home__content">
+      <div class="home__text">
+        <h2 class="about__title">
+          <span class="inline-title" data-key="welcome">Kırık Tespit Sistemine</span><br>
+          <span data-key="hello">Hoş Geldiniz!</span>
+        </h2>
+        <a href="#services" class="button animated-button" data-key="tryNow">Analize Başla</a>
+      </div>
+      <div class="home__image">
+        <img src="img/Ana resim.png" alt="Kırık Tanıma" class="home__img animated-image">
+      </div>
+    </div>
+  </section>
+
+  <header class="l-header">
+    <nav class="nav bd-container">
+      <a href="#" class="nav__logo animated-logo" data-key="systemTitle">Kırık Tespit Sistemi</a>
+      <input type="checkbox" id="nav-toggle" class="nav__checkbox">
+      <label for="nav-toggle" class="nav__toggle">
+        <i class="bx bx-menu"></i>
+      </label>
+
+      <div class="controls">
+        <button class="control-button language-button animated-button" id="language-button">🌐 <span data-key="chooseLanguage">Dil Seçiniz</span></button>
+        <button id="theme-toggle" class="control-button theme-toggle animated-button">🌙 Tema: Karanlık</button>
+        <div class="language-dropdown">
+          <a href="#" class="language-option" onclick="changeLanguage('tr')">Türkçe</a>
+          <a href="#" class="language-option" onclick="changeLanguage('ar')">عربي</a>
+        </div>
+      </div>
+
+      <div class="nav__menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#home" class="nav__link animated-link" data-key="home">Ana Sayfa</a></li>
+          <li class="nav__item"><a href="#about" class="nav__link animated-link" data-key="about">Hakkımızda</a></li>
+          <li class="nav__item"><a href="#services" class="nav__link animated-link" data-key="services">Hizmetlerimiz</a></li>
+          <li class="nav__item"><a href="#contact" class="nav__link animated-link" data-key="contact">İletişim</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="about section bd-container animated-section" id="about">
+    <div class="about__container bd-grid">
+      <div class="about__image">
+        <img src="img/info img.png" alt="Hakkımızda Resmi" class="about__img animated-image" data-key="aboutImage">
+      </div>
+      <div class="about__data">
+        <span class="section-subtitle"></span>
+        <h2 class="about__title animated-title" data-key="description">YOLOv8 Destekli Karar Destek Sistemi</h2>
+        <p class="about__paragraph animated-text" data-key="paragraph">
+          Bu sistem, radyologlar ve ortopedi uzmanları için bir klinik karar destek mekanizması olarak geliştirilmiştir. 
+          YOLOv8 (You Only Look Once) mimarisi kullanılarak eğitilen modelimiz, El bölgesi X-Ray (röntgen) görüntülerindeki 
+          kırık hatlarını yüksek doğruluk ve hızla konumlandırır. Eğitim sürecinde medikal standartlara uygun etiketlenmiş 
+          veri setleri kullanılmış, böylece gözden kaçabilecek mikro kırıkların dahi tespit edilmesi hedeflenmiştir. 
+          Acil servislerde ve radyoloji ünitelerinde iş yükünü hafifletmek ve teşhis süresini minimuma indirmek amacıyla 
+          optimize edilmiştir.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services-section animated-section">
+    <h2 class="section-title animated-title" data-key="services">Kırık Analiz Modülü</h2>
+    <p class="section-desc animated-text" data-key="servicesDesc">
+      Sistemimiz, yüklediğiniz diz röntgeni üzerinde yapay zeka analizi gerçekleştirerek kırık şüphesi taşıyan bölgeleri işaretler.
+      <br>
+      <span data-key="instruction">Lütfen analizi başlatmak için aşağıdaki talimatları uygulayın.</span>
+    </p>
+
+    <div class="services-flex">
+      <div class="service-card animated-card">
+        <h3 data-key="uploadPhoto" class="service-title">Röntgen Fotoğrafı Yükle:</h3>
+        <label for="imageUpload" class="upload-label animated-button">
+          <input type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)" class="custom-file-input">
+          <i class='bx bx-upload'></i> <span data-key="chooseFile">Dosya Seçin</span>
+        </label>
+        <div class="image-wrapper">
+          <img id="preview" class="preview-image animated-image" src="img/placeholder.png" alt="Yüklenmemiş Görsel" data-key="uploadedImage" />
+        </div>
+      </div>
+      <div class="service-card animated-card">
+        <h3 data-key="result" class="service-title">Analiz Sonucu:</h3>
+        <p id="analysisStatus" class="status-text animated-text">Lütfen röntgen yükleyin</p>
+        <div class="result-wrapper">
+          <img id="resultImage" class="preview-image animated-image" alt="Analiz Sonucu Görseli" />
+        </div>
+      </div>
+    </div>
+
+    <div id="contact" class="feedback-card animated-card">
+      <h3 data-key="feedbackTitle" class="animated-title">Sistemi nasıl buldunuz?</h3>
+      <textarea placeholder="Görüşlerinizi buraya yazabilirsiniz..." rows="3" cols="40" class="feedback-textarea animated-textarea" data-key="feedbackPlaceholder"></textarea>
+      <button class="button animated-button" style="margin-top: 1rem;" data-key="feedbackButton">Gönder</button>
+    </div>
+    <footer class="animated-text">
+      📧 Medikal İletişim: kiriktespit@medikal.com<br>
+      📞 Telefon: +90 555 123 4567
+    </footer>
+
+    <a href="#" class="scrolltop animated-scrolltop" id="-scrolltop">
+      <i class='bx bxs-chevron-up scrolltop__icon'></i>
+    </a>
+    <script src="script.js"></script>
+  </section>
+</body>
+</html>

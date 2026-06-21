@@ -1,0 +1,1 @@
+Dtaset : Roboflow platformundan alınmıştır, https://universe.roboflow.com/fracture-detection-29kih/bone-fracture-detection-khatl/model/8 .
